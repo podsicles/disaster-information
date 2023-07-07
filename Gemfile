@@ -68,3 +68,6 @@ group :development do
 end
 
 gem 'devise'
+gem 'faker'
+gem 'kaminari'
+gem 'carrierwave'
