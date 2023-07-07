@@ -1,0 +1,4 @@
+<h1>Title: <%= @post.title %></h1>
+<%= link_to 'Posts', posts_path %> <%= link_to 'Comments', post_comments_path %>
+<h2>Edit Comment ID: <%= @comment.id %></h2>
+<%= render partial: 'form', locals: { post: @post, comment: @comment, path: post_comment_path(@post, @comment) } %>
