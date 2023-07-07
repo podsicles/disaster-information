@@ -13,6 +13,7 @@
   <td>Title</td>
   <td>Content</td>
   <td>User</td>
+  <td>Comments Count</td>
   <td>Category</td>
   <td>Address</td>
   <td>Action</td>
@@ -22,6 +23,7 @@
       <td><%= post.title %></td>
       <td><%= post.content %></td>
       <td><%= post.user&.email %></td>
+      <td><%= post.comments_count %></td>
       <td><%= post.categories.pluck(:name).join(',') %></td>
       <td><%= post.address %></td>
       <td>
