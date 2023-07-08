@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "welcome#index"
+  root "posts#index"
 
   get '/user/posts', to: 'user_posts#index', as: 'user_posts'
   get '/user/comments', to: 'user_posts#comments', as: 'user_comments'
