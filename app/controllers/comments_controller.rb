@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
 
   def validate_comment_owner
     unless @comment.user == current_user
-      flash[:notice] = 'the comment not belongs to you'
+      flash[:notice] = 'the comment does not belong to you'
       redirect_to post_comments_path(@post)
     end
   end
