@@ -17,6 +17,7 @@
   <td>Category</td>
   <td>Address</td>
   <td>Action</td>
+  <td>Image</td>
   </thead>
   <% @posts.each do |post| %>
     <tr>
@@ -33,6 +34,7 @@
         <%= link_to 'Comments', post_comments_path(post) %>
         <%= link_to 'New Comment', new_post_comment_path(post) %>
       </td>
+      <td><%= image_tag post.image.url if post.image.present? %></td>
     </tr>
   <% end %>
 </table>

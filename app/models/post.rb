@@ -7,8 +7,8 @@ class Post < ApplicationRecord
   has_many :post_category_ships
   has_many :categories, through: :post_category_ships
   belongs_to :user
+  mount_uploader :image, ImageUploader
 
   def destroy
-    update(deleted_at: Time.now)
   end
 end
