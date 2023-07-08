@@ -25,13 +25,15 @@ class PostsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    session[:return_to] = request.referer 
+  end
 
   def update
     if @post.update(post_params)
       @post = Post.new(post_params)
       flash[:notice] = 'Post updated successfully'
-      redirect_to posts_path
+      redirect_to session.delete(:return_to)
     else
       flash.now[:alert] = 'Post update failed'
       render :edit, status: :unprocessable_entity
