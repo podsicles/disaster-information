@@ -5,12 +5,16 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "posts#index"
 
-  get '/user/posts', to: 'user_posts#index', as: 'user_posts'
-  get '/user/comments', to: 'user_posts#comments', as: 'user_comments'
-  resources :posts
+  namespace :user do
+    get 'posts', to: 'posts#index', as: 'posts'
+    get 'comments', to: 'comments#index', as: 'comments'
+    resources :comments, only: [:edit, :update, :destroy]
+  end
+
   resources :posts do
     resources :comments, except: :show
   end
+  
   resources :categories, except: :show
 end
 
