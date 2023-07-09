@@ -2,9 +2,9 @@
 
 <%= link_to 'Posts', posts_path %>
 <ul>
-  <li>Title: <%= @post.title %></li>
-  <li>Content: <%= @post.content %></li>
-  <li>User email: <%= @post.user&.email %></li>
-  <li>Address: <%= @post.address %></li>
-
+  <li><strong>Title:</strong> <%= @post.title %></li>
+  <li><strong>Content:</strong> <%= @post.content %></li>
+  <li><strong>User email:</strong> <%= @post.user&.email %></li>
+  <li><strong>Address:</strong> <%= @post.address %></li>
 </ul>
+<%= link_to 'Comments', post_comments_path(@post) %>
