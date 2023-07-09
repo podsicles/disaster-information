@@ -39,6 +39,16 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  def max_picture_limit
+    1
+  end
+
+  def validate_picture_limit
+    if model.pictures.count >= max_picture_limit
+      raise CarrierWave::IntegrityError, "You can't upload more than #{max_picture_limit} pictures."
+    end
+  end
+  
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
